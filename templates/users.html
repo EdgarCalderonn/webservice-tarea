@@ -1,0 +1,32 @@
+<head>
+
+    <title>Listado de estudiantes</title>
+    </head>
+
+<body>
+    <h2>Listado de Estudiantes</h2>
+    <div class="container">
+        <table class="text-center">
+            <thead>
+                <tr>
+                    <td>Firstname</td>
+                    <td>Lastname</td>
+                    <td>username</td>
+                    <td>email</td>
+                    <td>password</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tupla in datos%}
+                <tr>
+                    <td>{{tupla.0}}</td>
+                    <td>{{tupla.1}}</td>
+                    <td>{{tupla.2}}</td>
+                    <td>{{tupla.3}}</td>
+                    <td>{{tupla.4}}</td>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
