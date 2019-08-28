@@ -7,8 +7,6 @@ app.config['SQLALCHEMY_DATABASE_URI']= "sqlite:///databases/database.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-app.secret_key = 'mysecretkey'
-
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -16,8 +14,8 @@ def index():
 
 @app.route("/api/v1/users")
 def api_users():
-    data = db.engine.execute("SELECT * FROM users")
-    return jsonify({ 'usuarios ': [dict(row) for row in data]})
+    datos = db.engine.execute("SELECT * FROM users")
+    return jsonify({ 'usuarios ': [dict(tupla) for tupla in datos]})
 
 @app.route("/users/list")
 def lista_users():
